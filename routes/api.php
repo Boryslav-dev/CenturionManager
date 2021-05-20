@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 Route::post('/showCategories', [CategoryController::class, 'showCategories']);
 Route::post('/addCategory', [CategoryController::class, 'addCategory']);
-Route::post('/test',function(){return 'pidoras';});
+Route::post('/updateCategory', [CategoryController::class, 'updateCategory']);
+Route::post('/deleteCategory', [CategoryController::class, 'deleteCategory']);
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
