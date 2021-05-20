@@ -54,4 +54,33 @@ class UserController extends Controller
 
         return response($response, 201);
     }
+
+    public function resetPassword(Request $request){
+        $fields = $request->validate([
+            'id' => 'required',
+            'password' => 'required|string',
+            'new_password' => 'required|string|confirmed'
+        ]);
+
+        $user = User::where('id', $fields['id'])->first();
+        // Check password
+        if (!$user || !Hash::check($fields['password'], $user->password)) {
+            return response([
+                'message' => 'Bad creds'
+            ], 401);
+        }
+
+        User::where(['id' => $fields['id']])->update([
+            'password' => bcrypt($fields['new_password']),
+        ]);
+
+        $user = User::where(['id' => $fields['id']])->first();
+
+        $response = [
+            'user' => $user,
+            'message' => 'Password changed!'
+        ];
+
+        return response($response, 201);
+    }
 }
