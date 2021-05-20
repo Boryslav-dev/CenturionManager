@@ -8,40 +8,45 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+    //Show all categories
     public function showCategories(Request $request)
     {
-        $fields = $request->validate(['userId'=>'required']);
+        $fields = $request->validate(['userId'=>'']);
         $category = Category::where(['userId'=>$fields['userId']])->get(['id','userId','categoryName']);
         $response = ['category'=>$category];
         return response($response,201);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Add new category
     public function addCategory(Request $request)
     {
-        $fields = $request->validate(['categoryName'=>'required','userId'=>'required']);
+        $fields = $request->validate([
+            'categoryName'=>'required',
+            'userId'=>'required'
+        ]);
         Category::create(['userId' => $fields['userId'], 'categoryName' => $fields['categoryName']]);
         return $this->showCategories($request);
     }
-    public function update(Request $request, $id)
+
+    //Update current category
+    public function updateCategory(Request $request)
     {
-        //
+        $fields = $request->validate([
+            'id'=>'required',
+            'categoryName'=>'required'
+        ]);
+        Category::where(['id' => $fields['id']])->update([
+            'categoryName' => $fields['categoryName'],
+            ]);
+        return $this->showCategories($request);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    //Delete current category
+    public function deleteCategory(Request $request)
     {
-        //
+        $fields = $request->validate(['id'=>'required']);
+        Category::where(['id' => $fields['id']])->delete();
+        return $this->showCategories($request);
     }
+
 }
