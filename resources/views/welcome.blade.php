@@ -51,125 +51,66 @@
         </div>
     </header>
 
-    <section class="contacts">
+    <section class="user-settings">
         <div class="container">
-            <h1 class="title">Contacts</h1>
-            <div class="contacts__wrapper">
-                <div class="contacts__items contacts-list">
-                    <div class="contacts-list__item contact">
-                        <div class="contact__image">
-                            <img src="{{ asset('media/img/user.svg') }}" alt="Contact">
+            <h1 class="title">User settings</h1>
+            <div class="user-settings__wrapper">
+                <div class="user-settings__form">
+                    <div class="user-settings__left-column">
+                        <div class="user-settings__img">
+                            <img src="{{ asset('media/img/user.svg') }}" alt="User">
                         </div>
-                        <div class="contact__name">
-                            <div class="contact__description">
-                                <p>Name:</p>
-                            </div>
-                            <p>
-                                Petro Bondarchuk
-                            </p>
-                        </div>
-                        <div class="contact__main-info">
-                            <div class="contact__description">
-                                <p>Contact:</p>
-                            </div>
-                            <p>
-                                +380578573233
-                            </p>
-                        </div>
-                        <div class="contact__tags">
-                            <div class="contact__description">
-                                <p>Tags:</p>
-                            </div>
-                            <div class="contact__tags-wrapper">
-                                <p class="contact__tag">
-                                    Telegram
-                                </p>
-                                <p class="contact__tag">
-                                    Family
-                                </p>
-                                <p class="contact__tag">
-                                    Home
-                                </p>
-                            </div>
+                        <div class="user-settings__upload-wrapper">
+                            <input type="file" class="user-settings__upload-input">
+                            <div class="button">Upload photo</div>
                         </div>
                     </div>
-                    <div class="contacts-list__item contact">
-                        <div class="contact__image">
-                            <img src="{{ asset('media/img/user.svg') }}" alt="Contact">
-                        </div>
-                        <div class="contact__name">
-                            <div class="contact__description">
-                                <p>Name:</p>
-                            </div>
-                            <p>
-                                Petro Bondarchuk
-                            </p>
-                        </div>
-                        <div class="contact__main-info">
-                            <div class="contact__description">
-                                <p>Contact:</p>
-                            </div>
-                            <p>
-                                +380578573233
-                            </p>
-                        </div>
-                        <div class="contact__tags">
-                            <div class="contact__description">
-                                <p>Tags:</p>
-                            </div>
-                            <div class="contact__tags-wrapper">
-                                <p class="contact__tag">
-                                    Telegram
-                                </p>
-                                <p class="contact__tag">
-                                    Family
-                                </p>
-                                <p class="contact__tag">
-                                    Home
+                    <div class="user-settings__right-column">
+                        <div class="user-settings__input-wrapper">
+                            <div class="user-settings__input-text">
+                                <p>
+                                    User login
                                 </p>
                             </div>
-                        </div>
-                    </div>
-                    <div class="contacts-list__item contact">
-                        <div class="contact__image">
-                            <img src="{{ asset('media/img/user.svg') }}" alt="Contact">
-                        </div>
-                        <div class="contact__name">
-                            <div class="contact__description">
-                                <p>Name:</p>
+                            <input class="user-settings__input" type="text" value="user_login" readonly>
+                            <div class="user-settings__edit">
+                                <img src="{{ asset('media/img/edit.svg') }}" alt="Edit">
                             </div>
-                            <p>
-                                Petro Bondarchuk
-                            </p>
                         </div>
-                        <div class="contact__main-info">
-                            <div class="contact__description">
-                                <p>Contact:</p>
+                        <div class="user-settings__input-wrapper">
+                            <div class="user-settings__input-text">
+                                <p>
+                                    User email
+                                </p>
                             </div>
-                            <p>
-                                +380578573233
-                            </p>
+                            <input class="user-settings__input" type="text" value="user.email@gmail.com" readonly>
+                            <div class="user-settings__edit">
+                                <img src="{{ asset('media/img/edit.svg') }}" alt="Edit">
+                            </div>
                         </div>
-                        <div class="contact__tags">
-                            <div class="contact__description">
-                                <p>Tags:</p>
+                        <div class="user-settings__input-wrapper">
+                            <div class="user-settings__input-text">
+                                <p>
+                                    User password
+                                </p>
                             </div>
-                            <div class="contact__tags-wrapper">
-                                <p class="contact__tag">
-                                    Telegram
-                                </p>
-                                <p class="contact__tag">
-                                    Family
-                                </p>
-                                <p class="contact__tag">
-                                    Home
-                                </p>
+                            <input class="user-settings__input" type="password" value="password" readonly>
+                            <div class="user-settings__edit">
+                                <img src="{{ asset('media/img/edit.svg') }}" alt="Edit">
                             </div>
                         </div>
                     </div>
                 </div>
-                <aside class="main-aside">
-                    1
+                <aside class="settings-aside">
+                    <a href="#" class="settings-aside__tab active">
+                        <p>User settings</p>
+                    </a>
+                    <a href="#" class="settings-aside__tab">
+                        <p>Import/Export</p>
+                    </a>
+                    <a href="#" class="settings-aside__tab">
+                        <p>Categories</p>
+                    </a>
                 </aside>
             </div>
         </div>

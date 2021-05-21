@@ -36,7 +36,7 @@
 
     <section class="auth-section">
         <form class="auth-section__form auth-form">
-            <input type="text" placeholder="Login">
+            <input type="email" placeholder="Email">
             <input type="password" placeholder="Password">
             <button class="button">Log In</button>
         </form>
