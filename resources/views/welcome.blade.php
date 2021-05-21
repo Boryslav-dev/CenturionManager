@@ -51,64 +51,56 @@
         </div>
     </header>
 
-    <section class="user-settings">
+    <section class="categories">
         <div class="container">
-            <h1 class="title">User settings</h1>
-            <div class="user-settings__wrapper">
-                <div class="user-settings__form">
-                    <div class="user-settings__left-column">
-                        <div class="user-settings__img">
-                            <img src="{{ asset('media/img/user.svg') }}" alt="User">
-                        </div>
-                        <div class="user-settings__upload-wrapper">
-                            <input type="file" class="user-settings__upload-input">
-                            <div class="button">Upload photo</div>
-                        </div>
+            <h1 class="title">Categories</h1>
+            <div class="categories__wrapper">
+                <div class="categories__items">
+                    <div class="button categories__add">
+                        + Add Category
                     </div>
-                    <div class="user-settings__right-column">
-                        <div class="user-settings__input-wrapper">
-                            <div class="user-settings__input-text">
-                                <p>
-                                    User login
-                                </p>
-                            </div>
-                            <input class="user-settings__input" type="text" value="user_login" readonly>
-                            <div class="user-settings__edit">
-                                <img src="{{ asset('media/img/edit.svg') }}" alt="Edit">
-                            </div>
-                        </div>
-                        <div class="user-settings__input-wrapper">
-                            <div class="user-settings__input-text">
-                                <p>
-                                    User email
-                                </p>
-                            </div>
-                            <input class="user-settings__input" type="text" value="user.email@gmail.com" readonly>
-                            <div class="user-settings__edit">
-                                <img src="{{ asset('media/img/edit.svg') }}" alt="Edit">
-                            </div>
-                        </div>
-                        <div class="user-settings__input-wrapper">
-                            <div class="user-settings__input-text">
-                                <p>
-                                    User password
-                                </p>
-                            </div>
-                            <input class="user-settings__input" type="password" value="password" readonly>
-                            <div class="user-settings__edit">
-                                <img src="{{ asset('media/img/edit.svg') }}" alt="Edit">
-                            </div>
-                        </div>
+                    <div class="categories__item category">
+                        <p class="category__name">
+                            Telegram
+                        </p>
+                        <p class="category__total">
+                            Total records: <span>200</span>
+                        </p>
+                        <button class="button category__delete">
+                            Delete
+                        </button>
+                    </div>
+                    <div class="categories__item category">
+                        <p class="category__name">
+                            Viber
+                        </p>
+                        <p class="category__total">
+                            Total records: <span>100</span>
+                        </p>
+                        <button class="button category__delete">
+                            Delete
+                        </button>
+                    </div>
+                    <div class="categories__item category">
+                        <p class="category__name">
+                            Telephone
+                        </p>
+                        <p class="category__total">
+                            Total records: <span>20</span>
+                        </p>
+                        <button class="button category__delete">
+                            Delete
+                        </button>
                     </div>
                 </div>
                 <aside class="settings-aside">
-                    <a href="#" class="settings-aside__tab active">
+                    <a href="#" class="settings-aside__tab">
                         <p>User settings</p>
                     </a>
                     <a href="#" class="settings-aside__tab">
                         <p>Import/Export</p>
                     </a>
-                    <a href="#" class="settings-aside__tab">
+                    <a href="#" class="settings-aside__tab active">
                         <p>Categories</p>
                     </a>
                 </aside>
