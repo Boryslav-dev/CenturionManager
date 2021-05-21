@@ -53,6 +53,11 @@ input{
     border: 2px solid var(--main-color);
 }
 
+.button:disabled{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 .button--small{
     padding: 10px 15px;
     border-radius: 10px;
@@ -863,6 +868,70 @@ input{
     opacity: 0.7;
     margin-bottom: 5px;
 }
+
+.import-export__wrapper{
+    display: flex;
+    align-items: flex-start;
+}
+
+.import-export__items{
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+    display: flex;
+}
+
+.data-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border-radius: 15px;
+    -webkit-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.data-form__title{
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.data-form__info{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.data-form__info-item{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.data-from__info-value{
+    font-weight: bold;
+}
+
+.data-form__controls{
+    display: flex;
+    justify-content:center;
+    width: calc(100% + 10px);
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.data-form__controls .button{
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 
 
 
