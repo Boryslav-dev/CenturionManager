@@ -51,125 +51,58 @@
         </div>
     </header>
 
-    <section class="contacts">
+    <section class="categories">
         <div class="container">
-            <h1 class="title">Contacts</h1>
-            <div class="contacts__wrapper">
-                <div class="contacts__items contacts-list">
-                    <div class="contacts-list__item contact">
-                        <div class="contact__image">
-                            <img src="{{ asset('media/img/user.svg') }}" alt="Contact">
-                        </div>
-                        <div class="contact__name">
-                            <div class="contact__description">
-                                <p>Name:</p>
-                            </div>
-                            <p>
-                                Petro Bondarchuk
-                            </p>
-                        </div>
-                        <div class="contact__main-info">
-                            <div class="contact__description">
-                                <p>Contact:</p>
-                            </div>
-                            <p>
-                                +380578573233
-                            </p>
-                        </div>
-                        <div class="contact__tags">
-                            <div class="contact__description">
-                                <p>Tags:</p>
-                            </div>
-                            <div class="contact__tags-wrapper">
-                                <p class="contact__tag">
-                                    Telegram
-                                </p>
-                                <p class="contact__tag">
-                                    Family
-                                </p>
-                                <p class="contact__tag">
-                                    Home
-                                </p>
-                            </div>
-                        </div>
+            <h1 class="title">Categories</h1>
+            <div class="categories__wrapper">
+                <div class="categories__items">
+                    <div class="button categories__add">
+                        + Add Category
                     </div>
-                    <div class="contacts-list__item contact">
-                        <div class="contact__image">
-                            <img src="{{ asset('media/img/user.svg') }}" alt="Contact">
-                        </div>
-                        <div class="contact__name">
-                            <div class="contact__description">
-                                <p>Name:</p>
-                            </div>
-                            <p>
-                                Petro Bondarchuk
-                            </p>
-                        </div>
-                        <div class="contact__main-info">
-                            <div class="contact__description">
-                                <p>Contact:</p>
-                            </div>
-                            <p>
-                                +380578573233
-                            </p>
-                        </div>
-                        <div class="contact__tags">
-                            <div class="contact__description">
-                                <p>Tags:</p>
-                            </div>
-                            <div class="contact__tags-wrapper">
-                                <p class="contact__tag">
-                                    Telegram
-                                </p>
-                                <p class="contact__tag">
-                                    Family
-                                </p>
-                                <p class="contact__tag">
-                                    Home
-                                </p>
-                            </div>
-                        </div>
+                    <div class="categories__item category">
+                        <p class="category__name">
+                            Telegram
+                        </p>
+                        <p class="category__total">
+                            Total records: <span>200</span>
+                        </p>
+                        <button class="button category__delete">
+                            Delete
+                        </button>
                     </div>
-                    <div class="contacts-list__item contact">
-                        <div class="contact__image">
-                            <img src="{{ asset('media/img/user.svg') }}" alt="Contact">
-                        </div>
-                        <div class="contact__name">
-                            <div class="contact__description">
-                                <p>Name:</p>
-                            </div>
-                            <p>
-                                Petro Bondarchuk
-                            </p>
-                        </div>
-                        <div class="contact__main-info">
-                            <div class="contact__description">
-                                <p>Contact:</p>
-                            </div>
-                            <p>
-                                +380578573233
-                            </p>
-                        </div>
-                        <div class="contact__tags">
-                            <div class="contact__description">
-                                <p>Tags:</p>
-                            </div>
-                            <div class="contact__tags-wrapper">
-                                <p class="contact__tag">
-                                    Telegram
-                                </p>
-                                <p class="contact__tag">
-                                    Family
-                                </p>
-                                <p class="contact__tag">
-                                    Home
-                                </p>
-                            </div>
-                        </div>
+                    <div class="categories__item category">
+                        <p class="category__name">
+                            Viber
+                        </p>
+                        <p class="category__total">
+                            Total records: <span>100</span>
+                        </p>
+                        <button class="button category__delete">
+                            Delete
+                        </button>
+                    </div>
+                    <div class="categories__item category">
+                        <p class="category__name">
+                            Telephone
+                        </p>
+                        <p class="category__total">
+                            Total records: <span>20</span>
+                        </p>
+                        <button class="button category__delete">
+                            Delete
+                        </button>
                     </div>
                 </div>
-                <aside class="main-aside">
-                    1
+                <aside class="settings-aside">
+                    <a href="#" class="settings-aside__tab">
+                        <p>User settings</p>
+                    </a>
+                    <a href="#" class="settings-aside__tab">
+                        <p>Import/Export</p>
+                    </a>
+                    <a href="#" class="settings-aside__tab active">
+                        <p>Categories</p>
+                    </a>
                 </aside>
             </div>
         </div>
