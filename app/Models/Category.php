@@ -12,4 +12,9 @@ class Category extends Model
         'categoryName',
         'userId'
     ];
+
+    public function contacts()
+    {
+        return $this->belongsToMany(Contact::class);
+    }
 }
