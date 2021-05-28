@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -13,7 +14,14 @@ class CategoryController extends Controller
     {
         $fields = $request->validate(['userId'=>'']);
         $category = Category::where(['userId'=>$fields['userId']])->get(['id','userId','categoryName']);
-        $response = ['category'=>$category];
+        $categoryCount = DB::table('categories')
+            ->leftJoin('contact_to_categories','contact_to_categories.categoryId','=','categories.id')
+            ->leftJoin('contacts','contacts.id','=','contact_to_categories.contactId')
+            ->select('categories.categoryName', DB::raw('count(contacts.id)'))
+            ->where('categories.userId',$fields['userId'])
+            ->groupBy('categories.categoryName')
+            ->get();
+        $response = ['category'=>$category,'count'=>$categoryCount];
         return response($response,201);
     }
 
