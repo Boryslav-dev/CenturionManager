@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    public function indexLogin(Request $request)
+    {
+        return view('login');
+    }
+
+    public function indexRegistration(Request $request)
+    {
+        return view('signin');
+    }
+
     public function register(Request $request) {
         $fields = $request->validate([
             'name' => 'required|string',
@@ -22,14 +32,11 @@ class AuthController extends Controller
             'password' => bcrypt($fields['password'])
         ]);
 
-        $token = $user->createToken('myapptoken')->plainTextToken;
-
         $response = [
-            'user' => $user,
-            'token' => $token
+            'user' => $user
         ];
-
-        return response($response, 200);
+        $request->session()->put('userId', $user->id);
+        return response(view('contacts'));
     }
 
     public function login(Request $request) {
@@ -44,23 +51,19 @@ class AuthController extends Controller
         // Check password
         if(!$user || !Hash::check($fields['password'], $user->password)) {
             return response([
-                'message' => 'Bad creds'
+                'message' => 'Incorrect password'
             ], 401);
         }
 
-        $token = $user->createToken('myapptoken')->plainTextToken;
-
         $response = [
-            'user' => $user,
-            'token' => $token
+            'user' => $user
         ];
-
-        return response($response, 201);
+        $request->session()->put(['userId', $user->id]);
+        return response(view('contacts'));
     }
 
     public function logout(Request $request) {
-        auth()->user()->tokens()->delete();
-
+        $request->session()->flush();
         return [
             'message' => 'Logged out'
         ];

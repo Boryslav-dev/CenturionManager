@@ -21,12 +21,14 @@ Route::post('/addCategory', [CategoryController::class, 'addCategory']);
 Route::post('/updateCategory', [CategoryController::class, 'updateCategory']);
 Route::post('/deleteCategory', [CategoryController::class, 'deleteCategory']);
 
-Route::post('/showContacts', [ContactController::class, 'showContacts']);
+//Route::post('/showContacts', [ContactController::class, 'showContacts']);
+Route::get('/showContacts', [ContactController::class, 'showContacts']);
 Route::post('/addContact', [ContactController::class, 'addContact']);
 Route::post('/updateContact', [ContactController::class, 'updateContact']);
 Route::post('/deleteContact', [ContactController::class, 'deleteContact']);
 Route::post('/getOneContact', [ContactController::class, 'getOneContact']);
 Route::post('/getByCategory', [ContactController::class, 'getByCategory']);
+Route::get('/getByCategory', [ContactController::class, 'getByCategory']);
 
 
 Route::post('/register', [AuthController::class, 'register']);

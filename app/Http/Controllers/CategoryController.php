@@ -11,10 +11,17 @@ class CategoryController extends Controller
     //Show all categories
     public function showCategories(Request $request)
     {
-        $fields = $request->validate(['userId'=>'']);
-        $category = Category::where(['userId'=>$fields['userId']])->get(['id','userId','categoryName']);
-        $response = ['category'=>$category];
-        return response($response,201);
+        if($request->session()->exists('userId'))
+        {
+            $fields = $request->validate(['userId'=>'']);
+            $category = Category::where(['userId'=>$fields['userId']])->get(['id','userId','categoryName']);
+            $response = ['category'=>$category];
+            return response($response,201);
+        }
+        else
+        {
+            return response()->view('404');
+        }
     }
 
     //Add new category
@@ -24,8 +31,15 @@ class CategoryController extends Controller
             'categoryName'=>'required',
             'userId'=>'required'
         ]);
-        Category::create(['userId' => $fields['userId'], 'categoryName' => $fields['categoryName']]);
-        return $this->showCategories($request);
+        if($request->session()->exists('userId'))
+        {
+            Category::create(['userId' => $fields['userId'], 'categoryName' => $fields['categoryName']]);
+            return $this->showCategories($request);
+        }
+        else
+        {
+            return response()->view('404');
+        }
     }
 
     //Update current category
@@ -35,18 +49,31 @@ class CategoryController extends Controller
             'id'=>'required',
             'categoryName'=>'required'
         ]);
-        Category::where(['id' => $fields['id']])->update([
-            'categoryName' => $fields['categoryName'],
+        if($request->session()->exists('userId'))
+        {
+            Category::where(['id' => $fields['id']])->update([
+                'categoryName' => $fields['categoryName'],
             ]);
-        return $this->showCategories($request);
+            return $this->showCategories($request);
+        }
+        else
+        {
+            return response()->view('404');
+        }
     }
 
     //Delete current category
     public function deleteCategory(Request $request)
     {
         $fields = $request->validate(['id'=>'required']);
-        Category::where(['id' => $fields['id']])->delete();
-        return $this->showCategories($request);
+        if($request->session()->exists('userId'))
+        {
+            Category::where(['id' => $fields['id']])->delete();
+            return $this->showCategories($request);
+        }
+        else
+        {
+            return response()->view('404');
+        }
     }
-
 }
