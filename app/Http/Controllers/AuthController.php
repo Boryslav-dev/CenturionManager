@@ -4,17 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function indexLogin(Request $request)
+    public function indexLogin()
     {
         return view('login');
     }
 
-    public function indexRegistration(Request $request)
+    public function indexRegistration()
     {
         return view('signin');
     }
