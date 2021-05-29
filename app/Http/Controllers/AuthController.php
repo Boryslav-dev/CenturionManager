@@ -18,7 +18,8 @@ class AuthController extends Controller
         return view('signin');
     }
 
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         $fields = $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|unique:users,email',
@@ -34,11 +35,11 @@ class AuthController extends Controller
         $response = [
             'user' => $user
         ];
-        $request->session()->put('userId', $user->id);
-        return response(view('contacts'));
+        return response()->json($response, 201);
     }
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $fields = $request->validate([
             'email' => 'required|string',
             'password' => 'required|string'
@@ -48,7 +49,7 @@ class AuthController extends Controller
         $user = User::where('email', $fields['email'])->first();
 
         // Check password
-        if(!$user || !Hash::check($fields['password'], $user->password)) {
+        if (!$user || !Hash::check($fields['password'], $user->password)) {
             return response([
                 'message' => 'Incorrect password'
             ], 401);
@@ -57,12 +58,12 @@ class AuthController extends Controller
         $response = [
             'user' => $user
         ];
-        $request->session()->put(['userId', $user->id]);
-        return response(view('contacts'));
+        return response()->json($response, 201);
     }
 
-    public function logout(Request $request) {
-        $request->session()->flush();
+    public function logout(Request $request)
+    {
+        session()->flush();
         return [
             'message' => 'Logged out'
         ];
