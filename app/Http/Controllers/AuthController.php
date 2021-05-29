@@ -4,12 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function register(Request $request) {
+    public function indexLogin()
+    {
+        return view('login');
+    }
+
+    public function indexRegistration()
+    {
+        return view('signin');
+    }
+
+    public function register(Request $request)
+    {
         $fields = $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|unique:users,email',
@@ -22,17 +32,14 @@ class AuthController extends Controller
             'password' => bcrypt($fields['password'])
         ]);
 
-        $token = $user->createToken('myapptoken')->plainTextToken;
-
         $response = [
-            'user' => $user,
-            'token' => $token
+            'user' => $user
         ];
-
-        return response($response, 200);
+        return response()->json($response, 201);
     }
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $fields = $request->validate([
             'email' => 'required|string',
             'password' => 'required|string'
@@ -42,25 +49,21 @@ class AuthController extends Controller
         $user = User::where('email', $fields['email'])->first();
 
         // Check password
-        if(!$user || !Hash::check($fields['password'], $user->password)) {
+        if (!$user || !Hash::check($fields['password'], $user->password)) {
             return response([
-                'message' => 'Bad creds'
+                'message' => 'Incorrect password'
             ], 401);
         }
 
-        $token = $user->createToken('myapptoken')->plainTextToken;
-
         $response = [
-            'user' => $user,
-            'token' => $token
+            'user' => $user
         ];
-
-        return response($response, 201);
+        return response()->json($response, 201);
     }
 
-    public function logout(Request $request) {
-        auth()->user()->tokens()->delete();
-
+    public function logout(Request $request)
+    {
+        session()->flush();
         return [
             'message' => 'Logged out'
         ];

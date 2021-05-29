@@ -35,10 +35,10 @@
     </header>
 
     <section class="auth-section">
-        <form class="auth-section__form auth-form">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
-            <button class="button">Log In</button>
+        <form class="auth-section__form auth-form" method="post" action="{{url('api/login')}}">
+            <input name="email" type="email" placeholder="Email">
+            <input name="password" type="password" placeholder="Password">
+            <button class="button" type="submit">Log In</button>
         </form>
     </section>
 </body>
