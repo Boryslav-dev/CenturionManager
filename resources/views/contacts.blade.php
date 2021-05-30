@@ -65,7 +65,7 @@
                                 <p>Name:</p>
                             </div>
                             <p>
-                                Petro Bondarchuk
+                                Petua
                             </p>
                         </div>
                         <div class="contact__main-info">
