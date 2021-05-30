@@ -17,12 +17,6 @@ class TransferController extends Controller
             'id' => 'required',
         ]);
 
-        $user = User::where('id', $fields['id'])->first();
-
-        $contacts = Contact::where(['userId'=>$fields['id']])->get();
-
-        $categories = Category::where(['userId'=>$fields['id']])->get();
-
         $categoriesOfContact = DB::table('contacts')
             ->select('contacts.*')
             ->where('contacts.userId','=',$fields['id'])

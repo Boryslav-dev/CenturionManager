@@ -21,7 +21,13 @@ class ContactController extends Controller
     {
         $fields = $request->validate(['userId'=>'']);
         $contact = Contact::where(['userId'=>$fields['userId']])->get(['id','userId','name','mainContact','avatar','customInfo']);
-        $response = ['contact'=>$contact];
+        $categories = DB::table('contacts')
+            ->join('contact_to_categories', 'contacts.id', '=', 'contact_to_categories.contactId')
+            ->join('categories', 'categories.id', '=', 'contact_to_categories.categoryId')
+            ->select('contacts.id', 'categories.categoryName')
+            ->get();
+
+        $response = ['contact' => $contact, 'categories'=>$categories];
         return response($response,201);
     }
 
