@@ -31,6 +31,22 @@ class TransferController extends Controller
 
     public function setData(Request $request)
     {
-
+        $contacts = $request->validate([
+            'userId'=>'required',
+            'contacts'=>'required'
+        ]);
+        $numberOfContacts=0;
+        foreach ($contacts['contacts'] as $contact)
+        {
+            Contact::create([
+                'userId' => $contacts['userId'],
+                'name' => $contact['name'],
+                'mainContact' => $contact['mainContact'],
+                'avatar' => $contact['avatar'],
+                'customInfo' => $contact['customInfo']
+            ]);
+            $numberOfContacts++;
+        }
+        return response($numberOfContacts,201);
     }
 }
