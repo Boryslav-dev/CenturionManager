@@ -30,6 +30,7 @@ Route::post('/getOneContact', [ContactController::class, 'getOneContact']);
 Route::post('/getByCategory', [ContactController::class, 'getByCategory']);
 
 Route::post('/getAllData', [TransferController::class, 'getAllData']);
+Route::post('/setData', [TransferController::class, 'setData']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
