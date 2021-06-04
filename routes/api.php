@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TransferController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ Route::post('/updateCategory', [CategoryController::class, 'updateCategory']);
 Route::post('/deleteCategory', [CategoryController::class, 'deleteCategory']);
 
 Route::get('/showContacts', [ContactController::class, 'showContacts']);
+Route::post('/showContacts', [ContactController::class, 'showContacts']);
 Route::post('/addContact', [ContactController::class, 'addContact']);
 Route::post('/updateContact', [ContactController::class, 'updateContact']);
 Route::post('/deleteContact', [ContactController::class, 'deleteContact']);
@@ -35,7 +37,8 @@ Route::post('/setData', [TransferController::class, 'setData']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
-
+Route::post('/update', [UserController::class, 'update']);
+Route::post('/resetPassword', [UserController::class, 'resetPassword']);
 //Route::group(['middleware' => ['auth:sanctum']], function () {
 //    Route::get('/logout', [AuthController::class, 'logout']);
 //});

@@ -12,10 +12,10 @@ class UserController extends Controller
     public function update(Request $request){
         $fields = $request->validate([
             'id' => 'required',
-            'name' => 'string',
-            'email' => 'string',
-            'password' => 'required|string',
-            'flag_email' => 'string',
+            'name' => '',
+            'email' => '',
+            'password' => 'required',
+            'flag_email' => '',
         ]);
 
         $user = User::where('id', $fields['id'])->first();
